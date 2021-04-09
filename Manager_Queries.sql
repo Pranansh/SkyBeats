@@ -60,9 +60,3 @@ ON     producer.producerID= producer_producerID
 GROUP BY manager.managerID
 ORDER BY manager.managerID;
 
-select * from producer where manager_managerID="M1003";
-Select * from songs where songs.producer_producerID="P1076";
-
-Update Downloads,Distributors
-Set Downloads.Incoming_URL=Distributors.Incoming_URL
-Where Downloads.Album_Id=Distributors.Album_Id;
