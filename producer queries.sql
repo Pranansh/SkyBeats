@@ -34,3 +34,6 @@ where songs.producer_producerID=producer.producerID and songs.producer_producerI
 
 insert into songs values ("S222","yeh",5.7,0,0,"P1000","A1002");
 delete from songs where songs.producer_producerID="P1000" and songs.name="yeh";
+
+select songs.name,rank()over(order by rating desc) as rating,producer_producerID
+from songs where songs.producer_producerID="P1000";
