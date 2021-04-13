@@ -27,6 +27,8 @@ public class main {
             	c.existing();
             }
             else if (ch1==2) {
+		employee e=new employee();
+            	e.existing();
             	
             
             }
@@ -53,6 +55,8 @@ public class main {
             	c.newCustomer();
             }
             else if (ch1==2) {
+		employee e=new employee();
+            	e.newEmployee();
             
             }
             else if (ch1==3) {
