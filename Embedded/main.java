@@ -33,6 +33,8 @@ public class main {
             
             }
             else if (ch1==3) {
+		producer p=new producer();
+                p.existing();
             	
             }
             else if (ch1==4) {
@@ -60,6 +62,8 @@ public class main {
             
             }
             else if (ch1==3) {
+		producer p=new producer();
+                p.newProducer();
             	
             }
             else if (ch1==4) {
