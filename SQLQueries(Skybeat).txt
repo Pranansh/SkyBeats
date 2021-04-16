@@ -1,0 +1,66 @@
+1. Display songs whose rating are greater than 5
+select * from songs
+where rating>=5;
+
+2. display songs by a particular producer  (p=P1074) //search by producer and display its name
+select songID,songs.name,producer_producerID,producer.name
+from songs,producer
+where producer_producerID='P1074'
+and producer_producerID=producerID;
+
+3. search for cutomers "C1002" playlist 
+select customerID,customer.name,playlistID,playlist.name
+from playlist,customer
+where customer_customerID=customerID 
+and customerID="C1002";
+
+4. songs in particular playlist ""
+select songID,songs.name
+from `contains`,songs
+where songs_songID=songID
+and playlistID="";
+
+5. add song "" to a playlist ""
+insert into contains values("","");
+
+6. delete song "" from playlist ""
+delete from contains 
+where playlist_plylistID="" 
+and songs_songID="";
+
+7. create playlist
+insert into playlist values("");
+
+8. remove a playlist ""   //2 queries
+delete from contains 
+where playlistID="";
+
+delete from playlist where playlist ID=""
+
+10. update membership
+update customer
+set type = 'premium'
+where customerID='';
+
+11. see listened songs
+select songs_songID,count(songs_songID) from listens
+where customer_customerID='';
+
+12. customer who atteneded producers "" livestream;
+select customerID,customer.name,count(livestreamID) 
+from livestream,views,customer
+where customer_cutomerID=customerID 
+and livestream_livestreamID=livestreamID
+and producer_producer_ID="";
+
+13. all complains filed by customer ""
+select customerID,customer.name, reason 
+from customer,complain
+where customer_customerID=customerID
+and customerID=""  
+
+14. see songs by all producers
+select count(producer_producerID), producer_producerID, producer.name
+from songs,producer
+where producer_producerID=producerID
+group by producer_producerID;
