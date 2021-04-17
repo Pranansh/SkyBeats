@@ -38,7 +38,8 @@ public class main {
             	
             }
             else if (ch1==4) {
-            	
+            	manager m=new manager();
+                m.existing();
             }
             else if (ch1==5){
             	
@@ -67,7 +68,8 @@ public class main {
             	
             }
             else if (ch1==4) {
-            	
+            	manager m=new manager();
+                m.newManager();
             }
             else if (ch1==5){
             	
