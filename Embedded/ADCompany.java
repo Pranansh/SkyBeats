@@ -1,4 +1,4 @@
-package test6;
+
 
 import java.sql.*;
 import java.util.Scanner;
