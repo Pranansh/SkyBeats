@@ -43,10 +43,11 @@ GROUP BY manager.managerID
 ORDER BY manager.managerID;
 
 -- total views of a all the producer under a given manager
-SELECT   producer.producerID, SUM(songs.views)
+SELECT   producer.producerID, SUM(songs.views),producer.manager_managerID
 FROM        producer
 INNER JOIN  songs
 ON      producer.producerID=  songs.producer_producerID 
+WHERE producer.manager_managerID='M1003'
 GROUP BY producer.producerID
 ORDER BY producer.producerID;
  
