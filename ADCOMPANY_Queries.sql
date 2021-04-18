@@ -69,7 +69,7 @@ rating >=5 and rating<=10;
 select songID, name, views
 from songs
 where
-views >=1000 and rating<=5000;
+views >=1000 and views<=5000;
 
 /* highest rated and highest viewed songs quary is written below */
 select name, max(rating) as highest_rated from songs; 
