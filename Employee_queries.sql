@@ -20,7 +20,6 @@ SELECT songID
 	LIMIT 5
 	
 --View all resolved customer complaints:
---I'm a bit confused about this because we didn't give names to the attrubutes of process
 SELECT complainID, reason, customer_customerID
 	FROM process
 	INNER JOIN complain
