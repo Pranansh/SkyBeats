@@ -1,5 +1,3 @@
-package dbms;
-
 import java.sql.*;
 import java.util.Scanner;
 public class manager {
@@ -38,7 +36,7 @@ public class manager {
             		"FROM        manager \n" + 
             		"INNER JOIN  producer  \n" + 
             		"ON     producer.manager_managerID= manager.managerID\n" + 
-            		"WHERE manager.managerID="+mID+"\n" + 
+            		"WHERE manager.managerID='"+mID+"'\n" + 
             		"GROUP BY manager.managerID;";
             
             
@@ -53,14 +51,14 @@ public class manager {
             System.out.println();
             
     	}
-    	if(ch4==2) {
+    	else if(ch4==2) {
     		
     		System.out.println("Producers under you are :");
     		String query="SELECT   manager_managerID,producer.producerID\n" + 
     				"FROM        manager \n" + 
     				"INNER JOIN  producer  \n" + 
     				"ON      producer.manager_managerID= manager.managerID\n" + 
-    				"WHERE manager.managerID="+mID+";";
+    				"WHERE manager.managerID='"+mID+"';";
             
             
             ResultSet rs = st.executeQuery(query);
@@ -73,9 +71,9 @@ public class manager {
             
             System.out.println();
     	}
-    	if(ch4==3) {
+    	else if(ch4==3) {
     		
-    		String query="SELECT managerID , earnings FROM manager WHERE manager.managerID="+mID+"; ";
+    		String query="SELECT managerID , earnings FROM manager WHERE manager.managerID='"+mID+"'; ";
             
             
             ResultSet rs = st.executeQuery(query);
@@ -88,14 +86,14 @@ public class manager {
             
             System.out.println();
     	}
-    	if(ch4==4) {
+    	else if(ch4==4) {
     		
     		System.out.println("The producer with highest rating under you is:");
     		String query="SELECT   producer.manager_managerID,producer.producerID,songs.songID,songs.rating\n" + 
     				"FROM        producer\n" + 
     				"INNER JOIN  songs\n" + 
     				"ON      producer.producerID=  songs.producer_producerID \n" + 
-    				"WHERE producer.manager_managerID="+mID+"\n" + 
+    				"WHERE producer.manager_managerID='"+mID+"'\n" + 
     				"GROUP BY producer.producerID\n" + 
     				"ORDER BY songs.rating desc\n" + 
     				"limit 1;";
@@ -113,14 +111,14 @@ public class manager {
             
             System.out.println();
     	}
-    	if(ch4==5) {
+    	else if(ch4==5) {
     		
     		System.out.println("The producer with highest views under you:");
     		String query="SELECT   producer.manager_managerID,producer.producerID,sum(songs.views)\n" + 
     				"FROM        producer\n" + 
     				"INNER JOIN  songs\n" + 
     				"ON      producer.producerID=  songs.producer_producerID \n" + 
-    				"WHERE producer.manager_managerID="+mID+"\n" + 
+    				"WHERE producer.manager_managerID='"+mID+"'\n" + 
     				"GROUP BY producer.producerID\n" + 
     				"ORDER BY songs.views desc\n" + 
     				"limit 1;";
@@ -138,14 +136,14 @@ public class manager {
             
             System.out.println();
     	}
-    	if(ch4==6) {
+    	else if(ch4==6) {
     		
     		System.out.println("the performance of each producer under a you:");
     		String query="SELECT   producer.manager_managerID,producer.producerID,songs.songID,SUM(songs.views) ,songs.rating\n" + 
     				"FROM        producer\n" + 
     				"INNER JOIN  songs\n" + 
     				"ON      producer.producerID=  songs.producer_producerID \n" + 
-    				"WHERE producer.manager_managerID="+mID+"\n" + 
+    				"WHERE producer.manager_managerID='"+mID+"'\n" + 
     				"GROUP BY producer.producerID\n" + 
     				"ORDER BY songs.views;";
             
@@ -163,7 +161,7 @@ public class manager {
             
             System.out.println();
     	}
-    	if(ch4==7) {
+    	else if(ch4==7) {
     		
     		System.out.println("total views of all the songs under you:");
     		String query="SELECT   manager_managerID , sum(songs.views)\n" + 
@@ -172,7 +170,7 @@ public class manager {
     				"ON     producer.manager_managerID= manager.managerID\n" + 
     				"INNER JOIN  songs \n" + 
     				"ON     producer.producerID= producer_producerID \n" + 
-    				"WHERE manager.managerID="+mID+"\n" + 
+    				"WHERE manager.managerID='"+mID+"'\n" + 
     				"GROUP BY manager.managerID\n" + 
     				"ORDER BY songs.views;\n" + 
     				"";
@@ -192,8 +190,7 @@ public class manager {
     		System.out.println("Invalid choice ");
     	}
     	
-            
-           
+               
     	st.close();
         con.close();
     	
@@ -206,11 +203,14 @@ public class manager {
         
         String mID,mName;
         int earnings;
-        System.out.println("Enter ID, Name and earnings");
+        System.out.println("Enter ID");
         mID=sc.next();
         sc.nextLine();
+        System.out.println("Enter Name");
         mName=sc.nextLine();
+        System.out.println("Enter Earnings");
         earnings=sc.nextInt();
+       
         
         String query="insert into manager values (\""+mID+"\",\""+mName+"\",\""+earnings+"\");";
         
