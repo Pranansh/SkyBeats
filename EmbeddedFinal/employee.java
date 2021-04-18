@@ -102,7 +102,6 @@ public class employee {
 
         }
         else if (ch3==5) {
-            //we didnt assign names to the columns in process, so I assigned my own. we should update the data accordingly.
         	String query="select complainID, reason, customer_customerID\n" +
                     "\tfrom process\n" +
                     "\tinner join complain\n" +
