@@ -1,5 +1,5 @@
 -- See all number of songs of producers
-select producer_producerID, count(producer_producerID), producer.name
+select count(producer_producerID), producer.name
 from songs
 inner join producer
 on producer_producerID=producerID
@@ -24,7 +24,7 @@ group by songs.producer_producerID)
 as t1);
 
 -- see all songs by a particular producer's name
-select songID,songs.name,producer_producerID,producer.name
+select songID,songs.name,producer.name
 from songs
 inner join producer on producer_producerID=producerID
 where producer.name="Fay Conway";
