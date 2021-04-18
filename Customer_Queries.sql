@@ -31,7 +31,7 @@ where producer.name="Fay Conway";
 
 -- see customers playlists
 select * from playlist 
-where customer_customerID="C1002";
+where customer_customerID="C1073";
 
 -- see songs in a particular playlist
 select songID,songs.name
@@ -52,7 +52,7 @@ where customerID="C1002";
 -- Update Membership
 update customer
 set type = 'premium'
-where customerID="";
+where customerID="C1001";
 
 -- Create New Playlist
 insert into playlist values("X2000","groove","C1001");
