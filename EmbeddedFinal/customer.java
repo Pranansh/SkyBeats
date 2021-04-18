@@ -26,8 +26,8 @@ public class customer {
     	Connection con = DriverManager.getConnection(url, uname, password);
         Statement st = con.createStatement();
     	
-    	System.out.println("1. search song by name");
-    	System.out.println("2. search by producer name");
+    	System.out.println("1. search songs by song name");
+    	System.out.println("2. search songs by producer name");
     	System.out.println("3. access playlist");
     	System.out.println("4. update membership");
     	System.out.println("5. See number of songs by all producers");
@@ -67,7 +67,7 @@ public class customer {
             String prodname=sc.nextLine();
             //System.out.println(prodname);
             
-            String query="select songID,songs.name,producer_producerID,producer.name\r\n"
+            String query="select songID,songs.name,producer.name\r\n"
             		+ "from songs\r\n"
             		+ "inner join producer\r\n"
             		+ "where producer.name=\""+prodname+"\"\r\n"
@@ -80,8 +80,7 @@ public class customer {
             	//System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(6)+" "+rs.getString(7));
             	System.out.println("songID: "+rs.getString(1));
             	System.out.println("songNAME: "+rs.getString(2));
-            	System.out.println("ProducerID: "+rs.getString(3));
-            	System.out.println("ProducerNAME: "+rs.getString(4));
+            	System.out.println("ProducerNAME: "+rs.getString(3));
             	System.out.println();
             }
             
@@ -161,7 +160,7 @@ public class customer {
     	else if (ch3==5) {
     		
             
-            String query="select producer_producerID, count(producer_producerID), producer.name\r\n"
+            String query="select count(producer_producerID), producer.name\r\n"
             		+ "from songs\r\n"
             		+ "inner join producer\r\n"
             		+ "on producer_producerID=producerID\r\n"
@@ -174,8 +173,7 @@ public class customer {
             	//System.out.println(rs.getInt(1)+" "+ rs.getString(2));
             	//System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(6)+" "+rs.getString(7));
             	System.out.println("count(producerID) "+rs.getString(1));
-            	System.out.println("ProducerID "+rs.getString(2));
-            	System.out.println("ProducerNAME: "+rs.getString(3));
+            	System.out.println("ProducerNAME: "+rs.getString(2));
             	System.out.println();
             }
             
