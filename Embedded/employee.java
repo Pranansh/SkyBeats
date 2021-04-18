@@ -80,7 +80,8 @@ public class employee {
                     "\tfrom (SELECT songID, name, producer_producerID, views\n" +
                     "from songs\n" +
                     "order by views desc) as sub\n" +
-                    "\twhere rownum <=5;";
+                    "\tlimit 5;";
+
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 System.out.println("Song ID: "+rs.getString(1));
