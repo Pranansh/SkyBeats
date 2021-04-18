@@ -5,8 +5,12 @@ SELECT salary
 	WHERE employeeID=eID
 
 --View all pending customer complaints:
-	SELECT complainID, reason, customer_customerID
-		FROM complain
+	select * 
+	from complain
+	where complainID
+	not in 
+	(select complain_complainID
+	from process);
 
 --View all producer data:
 	SELECT producerID, name, views, earning, manager_managerID
