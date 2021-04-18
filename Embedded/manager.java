@@ -1,3 +1,5 @@
+package dbms;
+
 import java.sql.*;
 import java.util.Scanner;
 public class manager {
@@ -129,8 +131,7 @@ public class manager {
             	
             	System.out.println("managerID: "+rs.getString(1));
             	System.out.println("ProducerID: "+rs.getString(2));
-            	System.out.println("songID: "+rs.getString(3));
-            	System.out.println("song views: "+rs.getString(4));
+            	System.out.println("Total views: "+rs.getString(3));
             	System.out.println();
             }
             
