@@ -56,3 +56,13 @@ WHERE manager.managerID='M1003'
 GROUP BY manager.managerID
 ORDER BY songs.views;
 
+-- information of all producer's livestream under a manager
+SELECT   manager_managerID , producer.producerID,livestream.livestreamID, livestream.noofattendees
+FROM     manager 
+INNER JOIN  producer  
+ON     producer.manager_managerID= manager.managerID
+INNER JOIN  livestream
+ON     producer.producerID= producer_producerID 
+WHERE manager.managerID='M1003';
+
+
