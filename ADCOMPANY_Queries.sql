@@ -91,3 +91,11 @@ from adcompany,songs
 where songs.adcompany_adID = adcompany.adID 
 Order by funds desc
 limit 1 ;
+
+/*
+query to update the maximum funds raised by an ad company
+*/
+UPDATE adcompany
+SET funds = "30000.00"
+WHERE  STRCMP(adcompany.`adID`,"A1034")=0 ;
+
