@@ -65,4 +65,5 @@ INNER JOIN  livestream
 ON     producer.producerID= producer_producerID 
 WHERE manager.managerID='M1003';
 
-
+-- add a new manager to the manager table
+INSERT INTO manager VALUES ("M2001","Aadhya Raj",21112);
