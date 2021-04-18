@@ -97,7 +97,7 @@ public class employee {
             String query="select complainID, reason, customer_customerID\n" +
                     "\tfrom process\n" +
                     "\tinner join complain\n" +
-                    "\twhere employeeID=\""+eID+"\";";
+                    "\twhere employee_employeeID=\""+eID+"\";";
 
 
             ResultSet rs = st.executeQuery(query);
